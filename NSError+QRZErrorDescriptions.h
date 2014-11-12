@@ -7,9 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-
 /*
-
 	For more info you can check 
 	https://developer.apple.com/Library/ios/documentation/Networking/Reference/CFNetworkErrors/
 */
