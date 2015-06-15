@@ -14,6 +14,6 @@
 
 @interface NSError (QRZErrorDescriptions)
 
--(NSString *) getErrorCodeDescription;
+-(NSString *) getErrorCodeDescriptionWithConnectionFlag: (BOOL) reasonClient;
 
 @end
