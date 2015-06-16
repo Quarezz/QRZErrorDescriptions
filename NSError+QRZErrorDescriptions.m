@@ -10,7 +10,7 @@
 @implementation NSError (QRZrrorDescriptions)
 
 
--(NSString *) getErrorCodeDescriptionWithConnectionFlag: (BOOL) reasonClient
+-(NSString *) getErrorCodeDescriptionWithConnectionFlag: (BOOL*) reasonClient
 {
     NSString *message;
     
@@ -26,7 +26,7 @@
             break;
         case NSURLErrorTimedOut:
             message = @"The connection timed out";
-            reasonClient = YES;
+            *reasonClient = YES;
             break;
         case NSURLErrorUnsupportedURL:
             message = @"The connection failed due to an unsupported URL scheme";
@@ -39,22 +39,22 @@
             break;
         case NSURLErrorNetworkConnectionLost:
             message = @"The connection failed because the network connection was lost";
-            reasonClient = YES;
+            *reasonClient = YES;
             break;
         case NSURLErrorDNSLookupFailed:
             message = @"The connection failed because the DNS lookup failed";
-            reasonClient = YES;
+            *reasonClient = YES;
             break;
         case NSURLErrorHTTPTooManyRedirects:
             message = @"The HTTP connection failed due to too many redirects";
-            reasonClient = YES;
+            *reasonClient = YES;
             break;
         case NSURLErrorResourceUnavailable:
             message = @"The connection’s resource is unavailable";
             break;
         case NSURLErrorNotConnectedToInternet:
             message = @"The connection failed because the device is not connected to the internet";
-            reasonClient = YES;
+            *reasonClient = YES;
             break;
         case NSURLErrorRedirectToNonExistentLocation:
             message = @"The connection was redirected to a nonexistent location";
@@ -145,14 +145,14 @@
         // Other errors
         case NSURLErrorInternationalRoamingOff:
             message = @"The connection failed because international roaming is disabled on the device";
-            reasonClient = YES;
+            *reasonClient = YES;
             break;
         case NSURLErrorCallIsActive:
             message = @"The connection failed because a call is active";
             break;
         case NSURLErrorDataNotAllowed:
             message = @"The connection failed because data use is currently not allowed on the device";
-            reasonClient = YES;
+            *reasonClient = YES;
             break;
         case NSURLErrorRequestBodyStreamExhausted:
             message = @"The connection failed because its request’s body stream was exhausted";
